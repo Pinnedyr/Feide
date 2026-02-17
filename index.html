@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feide innlogging demo</title>
+
+<style>
+*{box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+body{
+    margin:0;
+    background:#a9b6c8;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+.card{
+    width:460px;
+    background:#f3f3f3;
+    padding:30px 28px;
+    border-radius:2px;
+}
+.lang{
+    text-align:right;
+    font-size:14px;
+    margin-bottom:10px;
+}
+h1{
+    margin:0 0 10px 0;
+    font-size:30px;
+    font-weight:700;
+    color:#333;
+}
+.sub{
+    display:flex;
+    gap:15px;
+    color:#333;
+    border-bottom:1px solid #d6d6d6;
+    padding-bottom:15px;
+    margin-bottom:20px;
+}
+.section-title{
+    color:#444;
+    font-size:15px;
+    margin-bottom:8px;
+}
+.org{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    border-bottom:1px solid #d6d6d6;
+    padding-bottom:18px;
+    margin-bottom:18px;
+}
+.org img{width:38px}
+.link{
+    color:#3d5aa9;
+    text-decoration:underline;
+    cursor:pointer;
+    font-size:14px;
+}
+label{display:block;margin:12px 0 6px}
+input{
+    width:100%;
+    padding:14px;
+    border:2px solid #6d79b5;
+    outline:none;
+    font-size:16px;
+    background:white;
+}
+.passwrap{position:relative}
+.showbtn{
+    position:absolute;
+    right:8px;
+    top:8px;
+    padding:10px 16px;
+    background:#d9d9d9;
+    border:none;
+    cursor:pointer;
+}
+.loginbtn{
+    margin-top:18px;
+    width:100%;
+    padding:16px;
+    background:#343f78;
+    color:white;
+    border:none;
+    font-size:18px;
+    cursor:pointer;
+}
+.help{
+    margin-top:22px;
+    border-top:1px solid #cfcfcf;
+    padding-top:15px;
+    display:flex;
+    justify-content:space-between;
+    cursor:pointer;
+}
+.helpcontent{
+    display:none;
+    margin-top:10px;
+    font-size:14px;
+    color:#444;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <div class="lang">🇳🇴 Bokmål ▼</div>
+
+    <h1>Logg inn med Feide</h1>
+    <div class="sub">
+        <div style="font-size:34px">🔐</div>
+        <div>Du må logge deg på via Feide for å få tilgang til Feide Kundeportal.</div>
+    </div>
+
+    <div class="section-title">Din tilhørighet</div>
+    <div class="org">
+        <img src="">
+        <div>
+            <div>Bergen kommune</div>
+            <div class="link" onclick="alert('Demo: bytt tilhørighet')">Endre tilhørighet</div>
+        </div>
+    </div>
+
+    <label>Brukernavn</label>
+    <input id="user">
+
+    <label>Passord</label>
+    <div class="passwrap">
+        <input type="password" id="pass">
+        <button class="showbtn" onclick="togglePass()">Vis</button>
+    </div>
+
+    <div class="link" onclick="alert('Demo: glemt passord')">Glemt brukernavn eller passord?</div>
+
+    <button class="loginbtn" onclick="login()">Logg inn</button>
+
+    <div class="help" onclick="toggleHelp()">
+        <div>Trenger du hjelp?</div>
+        <div style="font-size:26px">+</div>
+    </div>
+    <div class="helpcontent" id="helpbox">
+        Kontakt IT‑support eller din skole/arbeidsgiver for hjelp med Feide‑innlogging.
+    </div>
+</div>
+
+<script>
+function togglePass(){
+    let p=document.getElementById("pass");
+    p.type=p.type==="password"?"text":"password";
+}
+function login(){
+    let u=document.getElementById("user").value;
+    let p=document.getElementById("pass").value;
+    if(!u||!p) alert("Skriv inn brukernavn og passord");
+    else alert("Demo innlogging:\nBruker: "+u+"\nPassord: "+p);
+}
+function toggleHelp(){
+    let h=document.getElementById("helpbox");
+    h.style.display=h.style.display==="block"?"none":"block";
+}
+</script>
+
+</body>
+</html>
